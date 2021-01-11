@@ -40,9 +40,9 @@ for episode in range(num_episodes):
         # Exploration-exploitation trade-off
         exploration_rate_threshold = random.uniform(0, 1)
         if exploration_rate_threshold > exploration_rate:
-            action = np.argmax(q_table[state, :])
+            action = np.argmax(q_table[state, :])  # exploitation (of training)
         else:
-            action = env.action_space.sample()
+            action = env.action_space.sample()  # exploration
 
         # Make an action in the environment
         new_state, reward, done, info = env.step(action)
